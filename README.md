@@ -1,6 +1,6 @@
 # Diary
 
-🚧 ** monitoring works, some routes must be fixed** 🚧
+🚧 **monitoring works, some routes must be fixed** 🚧
 
 
 
@@ -84,7 +84,12 @@ Prometheus : [http://localhost:9090](http://localhost:9090)
 
 pick a metric like *prometheus_http_requests_total* on [http://localhost:9090/metrics](http://localhost:9090/metrics)
 
-Jaeger (only work outside the docker compose if you add it manually) : [http://localhost:16686/](http://localhost:16686/)
+Jaeger only work outside the docker compose if you add it manually with 
+```bash
+docker run -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one
+```
+
+[http://localhost:16686/](http://localhost:16686/)
 
 
 ![Grafana](images/grafana.png "Grafana")
