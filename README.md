@@ -72,24 +72,23 @@ Diary
 docker-compose up --build
 ```
 
-**Your ports must be free!**
+**Yours ports must be free!**
 
-FastAPI:  [http://localhost:8000/docs](http://localhost:8000/docs)
+**FastAPI**:  [http://localhost:8000/docs](http://localhost:8000/docs)
 
-Grafana:  [http://localhost:3000](http://localhost:3000)
+**Grafana**:  [http://localhost:3000](http://localhost:3000)
 
 login and password are **admin**, dashboard is FastAPI metrics
 
-Prometheus : [http://localhost:9090](http://localhost:9090)
+**Prometheus** : [http://localhost:9090](http://localhost:9090)
 
 pick a metric like *prometheus_http_requests_total* on [http://localhost:9090/metrics](http://localhost:9090/metrics)
 
-Jaeger only work outside the docker compose if you add it manually with 
+**Jaeger** : [http://localhost:16686/](http://localhost:16686/)
+⚠️ only work outside the docker compose if you add it manually with 
 ```bash
 docker run -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one
 ```
-
-[http://localhost:16686/](http://localhost:16686/)
 
 
 ![Grafana](images/grafana.png "Grafana")
