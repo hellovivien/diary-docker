@@ -1,8 +1,8 @@
 """baseline
 
-Revision ID: 73e046ff2fd0
+Revision ID: b8b65a8b5f84
 Revises: 
-Create Date: 2021-07-28 10:11:45.345299
+Create Date: 2021-07-28 14:05:43.025442
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '73e046ff2fd0'
+revision = 'b8b65a8b5f84'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,7 +36,7 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('content', sa.String(), nullable=True),
     sa.Column('emotion', sa.String(), nullable=True),
-    sa.Column('author_id', sa.Integer(), nullable=True),
+    sa.Column('owner_id', sa.Integer(), nullable=True),
     sa.Column('love', sa.Float(), nullable=True),
     sa.Column('caring', sa.Float(), nullable=True),
     sa.Column('admiration', sa.Float(), nullable=True),
@@ -65,7 +65,7 @@ def upgrade():
     sa.Column('anger', sa.Float(), nullable=True),
     sa.Column('disgust', sa.Float(), nullable=True),
     sa.Column('disappointment', sa.Float(), nullable=True),
-    sa.ForeignKeyConstraint(['author_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['owner_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_post_id'), 'post', ['id'], unique=False)

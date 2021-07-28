@@ -42,7 +42,14 @@ prometheus_fastapi_instrumentator == 5.7.1
 # C:\Users\vivien\Dev\backend\fastapi\app\schemas\post.py: 3
 # C:\Users\vivien\Dev\backend\fastapi\app\schemas\token.py: 3
 # C:\Users\vivien\Dev\backend\fastapi\app\schemas\user.py: 3
-pydantic == 1.8.2
+pydantic[email]
+python-multipart
+opentelemetry-api
+opentelemetry.sdk
+opentelemetry.instrumentation.fastapi
+opentelemetry-exporter-jaeger
+opentelemetry-propagator-b3
+bcrypt
 
 # C:\Users\vivien\Dev\backend\fastapi\app\api\deps.py: 5
 # C:\Users\vivien\Dev\backend\fastapi\app\core\security.py: 4

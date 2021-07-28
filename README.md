@@ -1,6 +1,7 @@
 # Diary
 
-🚧 **not ready yet** 🚧
+🚧 ** monitoring works, some routes must be fixed** 🚧
+
 
 
 ```
@@ -82,6 +83,8 @@ login and password are **admin**, dashboard is FastAPI metrics
 Prometheus : [http://localhost:9090](http://localhost:9090)
 
 pick a metric like *prometheus_http_requests_total* on [http://localhost:9090/metrics](http://localhost:9090/metrics)
+
+Jaeger (only work outside the docker compose if you add it manually) : [http://localhost:16686/](http://localhost:16686/)
 
 
 ![Grafana](images/grafana.png "Grafana")

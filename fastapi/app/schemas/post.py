@@ -23,7 +23,7 @@ class PostUpdate(PostBase):
 class PostInDBBase(PostBase):
     id: int
     content: str
-    author_id: int
+    owner_id: int
     emotion: str
     love: float
     caring: float
