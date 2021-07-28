@@ -72,10 +72,15 @@ docker-compose up --build
 ```
 
 **Your ports must be free!**
+
 FastAPI:  [http://localhost:8000/docs](http://localhost:8000/docs)
+
 Grafana:  [http://localhost:3000](http://localhost:3000)
+
 login and password are **admin**, dashboard is FastAPI metrics
+
 Prometheus : [http://localhost:9090](http://localhost:9090)
+
 pick a metric like *prometheus_http_requests_total* on [http://localhost:9090/metrics](http://localhost:9090/metrics)
 
 
