@@ -9,6 +9,15 @@ from app.api import deps
 router = APIRouter()
 
 
+@router.get("/predict/{input}")
+def predict(input: str, current_user: models.User = Depends(deps.get_current_active_user)):
+    import pickle
+    tfidf, model = pickle.load(open('app/ml/model.bin', 'rb'))
+    predictions = model.predict(tfidf.transform([input]))
+    label = predictions[0]
+    return {'text': input, 'label': label}
+
+
 @router.get("/", response_model=List[schemas.Post])
 def read_posts(
     db: Session = Depends(deps.get_db),

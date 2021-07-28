@@ -5,7 +5,6 @@ from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.propagate import set_global_textmap
-from opentelemetry.propagators.b3 import B3Format
 
 # Example usage inside functions
 # trace a block of code
@@ -17,7 +16,6 @@ from opentelemetry.propagators.b3 import B3Format
 
 
 def init_ot_with_jaeger():
-    set_global_textmap(B3Format())
     trace.set_tracer_provider(
         TracerProvider(
             resource=Resource.create({SERVICE_NAME: "ot-fastapi-service"})
@@ -32,3 +30,5 @@ def init_ot_with_jaeger():
     trace.get_tracer_provider().add_span_processor(
         BatchSpanProcessor(jaeger_exporter)
     )
+
+

@@ -89,5 +89,24 @@ pick a metric like *prometheus_http_requests_total* on [http://localhost:9090/me
 docker run -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one
 ```
 
+## API
+
+here is some api routes:
+
+Predict emotion
+```
+/posts/predict/{input}
+```
+⚠️ you must be logged (username is **user1@gmail.com**, password is **secret**)
+
+
+List users
+```
+/users
+```
+⚠️ you must be superuser (username is **superuser@gmail.com**, password is **secret**)
+
+
+## Grafana
 
 ![Grafana](images/grafana.png "Grafana")

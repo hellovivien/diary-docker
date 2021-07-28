@@ -8,7 +8,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      - SQLITE_URL=sqlite:///app/diary.db
+      - SQLITE_URL=sqlite:///app/diary.db?check_same_thread=False
       # Replace the SECRET_KEY with a new one. Use this command in a bash terminal: openssl rand -hex 32
       - SECRET_KEY=02c0251715f94313f47ba9cf7309dc2956ff2604a87518c7c8fb338db9df75ca
       - PORT=8000

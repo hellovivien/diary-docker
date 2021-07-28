@@ -11,22 +11,29 @@ from app.config import settings
 
 router = APIRouter()
 
-@router.get("/demo")
+@router.get("/populate")
 def populate(db: Session = Depends(deps.get_db)):
     """
     Populate the database
     """
     from faker import Faker
-    fake = Faker('fr-FR')  
-    for i in range(10):
+    from sqlalchemy import func
+    fake = Faker('fr-FR')
+    outpout = []
+    def add_user(email, superuser=False):
         user_in = schemas.UserCreate(
-            email=fake.email(),
+            email=email,
             password='secret',
             full_name='{} {}'.format(fake.first_name(), fake.last_name()),
+            is_superuser=superuser,  
         )
         user = crud.user.create(db, obj_in=user_in)
-        print('new user: {}'.format(user.full_name))
-    return {'detail': 'database fill ok'}
+        outpout.append('new user: {}'.format(user.full_name))        
+    # create superuser
+    add_user('superuser@gmail.com', superuser=True)
+    for i in range(10):
+        add_user('user{}@gmail.com'.format(i))
+    return '\n'.join(outpout)
 
 
 
