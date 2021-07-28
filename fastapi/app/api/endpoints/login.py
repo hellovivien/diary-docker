@@ -26,14 +26,17 @@ def login_access_token(
     )
     
     if not user:
-        print('incorrect')
         raise HTTPException(status_code=400, detail="Incorrect email or password")
     elif not crud.user.is_active(user):
         raise HTTPException(status_code=400, detail="Inactive user")
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    scopes = ['me']
+    if user.is_superuser:
+        scopes.append('superuser')    
     return {
         "access_token": security.create_access_token(
-            user.id, expires_delta=access_token_expires
+            data={"sub": str(user.id), "scopes": scopes},
+            expires_delta=access_token_expires
         ),
         "token_type": "bearer",
     }

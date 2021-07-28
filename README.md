@@ -91,6 +91,8 @@ docker run -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one
 
 ## API
 
+User created with *is_superuser = True* acquire **superuser scope**.
+
 here is some api routes:
 
 Predict emotion
@@ -105,7 +107,6 @@ List users
 /users
 ```
 ⚠️ you must be superuser (username is **superuser@gmail.com**, password is **secret**)
-
 
 ## Grafana
 
